@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wrap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .wrap_box {
+            transition: all 1s cubic-bezier(.23, .09, .08, 1.36);
+        }
+        
+        .box {
+            width: 100%;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="wrap_box">
+            <div class="box" style="background-color: aquamarine;"></div>
+            <div class="box" style="background-color: rgb(0, 255, 64);"></div>
+            <div class="box" style="background-color: rgb(127, 157, 255);"></div>
+            <div class="box" style="background-color: rgb(241, 23, 143);"></div>
+            <div class="box" style="background-color: aquamarine;"></div>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            let falg = true;
+            let page = 0;
+            let wrapBox = document.querySelector('.wrap_box');
+            let boxs = document.querySelectorAll('.box');
+            boxs.forEach(item => {
+                item.style.height = window.innerHeight + 'px';
+            });
+            document.addEventListener('mousewheel', (e) => {
+                if (e.wheelDelta > 0) {
+                    if (falg) {
+                        falg = false;
+                        page--;
+                        if (page == -1) {
+                            page = 0;
+                            falg = true;
+                        }
+                        wrapBox.style.transform = `translateY(-${(page * 936)}px)`;
+                    }
+                } else {
+                    if (falg) {
+                        falg = false;
+                        page++;
+                        if (page == 5) {
+                            page = 4;
+                            falg = true;
+                        }
+                        wrapBox.style.transform = `translateY(-${page * 936}px)`;
+                    }
+
+                };
+            });
+
+            wrapBox.addEventListener('transitionend', () => {
+                falg = true;
+            })
+        }
+    </script>
+</body>
+
+</html>

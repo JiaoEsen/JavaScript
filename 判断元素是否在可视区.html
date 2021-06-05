@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .wrap {
+            width: 100%;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .box {
+            width: 400px;
+            height: 400px;
+            margin: 40px;
+            background: blue;
+            transform: translateY(100%);
+        }
+        
+        .banner {
+            width: 100%;
+        }
+        
+        .banner div {
+            width: 100%;
+            height: 400px;
+            font-size: 200px;
+            text-align: center;
+            line-height: 400px;
+        }
+        
+        .red {
+            background: red;
+        }
+        
+        .move {
+            animation: move 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <div class="banner">
+            <div>😀</div>
+            <div>😀</div>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        let box = document.querySelectorAll('.box');
+        s();
+        window.onscroll = function() {
+            let scr = document.documentElement.scrollTop || document.body.scrollTop;
+            box.forEach(item => {
+                if (scr >= item.offsetTop + item.clientHeight / 2 - window.innerHeight) {
+                    item.classList.add('move');
+                }
+            });
+        }
+
+        function s() {
+            let scr = document.documentElement.scrollTop || document.body.scrollTop;
+            box.forEach(item => {
+                if (scr >= item.offsetTop + item.clientHeight / 2 - window.innerHeight) {
+                    item.classList.add('move');
+                }
+            });
+        }
+
+        // 滚动的距离 >= 当前元素距离顶部的距离+当前元素的高度-可视区高度
+    </script>
+</body>
+
+</html>

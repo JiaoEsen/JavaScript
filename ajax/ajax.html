@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var ajax = null;
+        // if (window.XMLHttpRequest) {
+        //     ajax = new XMLHttpRequest();
+        // } else {
+        //     ajax = new ActiveXObject("Microsoft.XHLHTTP");
+        // }
+
+        // // 请求服务器
+        // // ajax.open(method, url, boolean);
+        // ajax.open("get", "./data/data.json", true);
+
+
+        // // 发送数据
+        // ajax.send();
+
+
+        // // 返回结果 
+        // ajax.onreadystatechange = function() {
+        //     if (ajax.readyState == 4) {
+        //         if (ajax.status == 200) {
+        //             console.log(JSON.parse(ajax.responseText));
+        //         } else {
+        //             alert('请求失败');
+        //         }
+        //     }
+        // };
+
+        // var ajax = null;
+        // //第一步 创建 XMLHttpRequest 对象
+        // try {
+        //     ajax = new XMLHttpRequest();
+        // } catch (e) {
+        //     ajax = new ActiveXObject('Microsoft.XMLHTTP');
+        // }
+
+
+        // ajax.open('GET', './data/data.json', true);
+        // ajax.send();
+
+        // ajax.onreadystatechange = function() {
+        //     if (ajax.readyState == 4) {
+        //         if (ajax.status == 200) {
+        //             console.log(JSON.parse(ajax.responseText));
+        //         } else {
+        //             console.log('请求失败');
+        //         }
+        //     }
+        // }
+
+        // ajax('get', './data/data.json', null, function(res) {
+        //     console.log(res);
+        // });
+
+
+        // function ajax(method, url, data, fnSucc, fnFaild) {
+        //     var xhr = null;
+        //     try {
+        //         xhr = new XMLHttpRequest();
+        //     } catch (e) {
+        //         xhr = ActiveXObject('Microsoft.XMLHTTP');
+        //     }
+
+        //     if (method == 'get') {
+        //         xhr.open('get', url + '?' + data + '&' + new Date().getTime(), true);
+        //         xhr.send();
+        //     } else {
+        //         xhr.open('post', url, true);
+        //         xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+        //         xhr.send(data);
+        //     }
+
+        //     xhr.onreadystatechange = function() {
+        //         if (xhr.readystate == 4) {
+        //             if (xhr.status == 200) {
+        //                 fnSucc && fnSucc(xhr.responseText);
+        //             } else {
+        //                 fnFaild && fnFaild(xhr.status);
+        //             }
+        //         }
+        //     }
+
+        // };
+
+        // ajax({
+        //     type: "get",
+        //     url: "./data/data.json",
+        //     success: function(res) {
+        //         console.log(JSON.parse(res));
+        //     }
+        // });
+
+        // function ajax(options) {
+        //     options = options || {};
+        //     options.type = options.type || 'GET';
+        //     options.dataType = options.dataType || 'JSON';
+        //     options.data = options.data || null;
+        //     var xhr = null;
+        //     if (window.XMLHttpRequest) {
+        //         xhr = new XMLHttpRequest();
+        //     } else {
+        //         xhr = new ActiveXObject();
+        //     }
+
+        //     // var pare = formatParams();
+
+        //     if (options.type == 'get') {
+        //         xhr.open('get', options.url + '?' + options.data, true);
+        //         xhr.send(null);
+        //     } else {
+        //         xhr.open('post', options.url, true);
+        //         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //         xhr.send(options.data);
+        //     }
+
+        //     xhr.onreadystatechange = function() {
+        //         if (xhr.readyState == 4) {
+        //             if (xhr.status == 200) {
+        //                 options.success && options.success(xhr.responseText);
+        //             } else {
+        //                 options.error && options.error(xhr.status);
+        //             }
+        //         }
+        //     }
+        // }
+
+        // ajax({
+        //     type: "POST",
+        //     url: './data/data.json',
+        //     success: function(res) {
+        //         console.log(res);
+        //     }
+        // });
+
+
+
+        // function ajax(options) {
+        //     options = options || {};
+        //     options.type = (options.type || 'GET').toUpperCase();
+        //     options.dataType = options.dataType || 'JSON';
+        //     var xhr = null;
+        //     if (window.XMLHttpRequest) {
+        //         xhr = new XMLHttpRequest();
+        //     } else {
+        //         xhr = new ActiveXObject();
+        //     }
+
+        //     if (options.type == 'GET') {
+        //         xhr.open('GET', options.url + '?' + options.data + '&' + new Date().getTime(), true);
+        //         xhr.send();
+        //     } else {
+        //         xhr.open('POST', options.url, true);
+        //         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //         xhr.send(options.data);
+        //     }
+
+        //     xhr.onreadystatechange = function() {
+        //         if (xhr.readyState == 4) {
+        //             if (xhr.status == 200) {
+        //                 options.success && options.success(xhr.responseText);
+        //             } else {
+        //                 options.error && options.error(xhr.status);
+        //             }
+        //         }
+        //     }
+        // }
+
+        ajax({
+            type: 'GET',
+            url: './data/data.json',
+            success: function(res) {
+                console.log(res);
+            }
+        });
+
+        function ajax(options) {
+            options = options || {};
+            options.type = (options.type || 'GET').toUpperCase();
+            options.dataType = options.dataType || 'JSON';
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            if (options.type == 'GET') {
+                xhr.open('GET', options.url + '?' + options.data + '&' + new Date().getTime(), true);
+                xhr.send();
+            } else {
+                xhr.open('POST', options.url, true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.send(options.data);
+            }
+
+            // 每当 readyState 改变时，就会触发 onreadystatechange 事件。
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        options.success && options.success(xhr.responseText);
+                    } else {
+                        options.error && options.error(xhr.status);
+                    }
+                }
+            }
+        }
+
+        // function ajax(options) {
+        //     options = options || {};
+        //     options.type = (options.type || 'GET').toUpperCase();
+        //     options.dataType = options.dataType || 'JSON';
+
+        //     //創建 XMLHttpRequest()
+        //     var xhr = null;
+        //     if (window.XMLHttpRequest) {
+        //         xhr = new XMLHttpRequest();
+        //     } else {
+        //         xhr = ActiveXObject('Microsoft.XMLHTTP');
+        //     }
+        //     if (options.type == 'GET') {
+        //         xhr.open('GET', options.url + '?' + options.data + '&' + new Date().getTime(), true);
+        //         xhr.send();
+        //     } else {
+        //         xhr.open('POST', options.url, true);
+        //         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //         xhr.send(options.data);
+        //     }
+
+        //     xhr.onreadystatechange = function() {
+        //         if (xhr.readyState == 4) {
+        //             if (xhr.status == 200) {
+        //                 options.success && options.success(xhr.responseText);
+        //             } else {
+        //                 options.error && options.error(xhr.status);
+        //             }
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = [{
+            "id": "1",
+            "name": 11
+        }, {
+            "id": "2",
+            "name": 22
+        }, {
+            "id": "3",
+            "name": 33
+        }]
+        var obj2 = [{
+            "id": "4",
+            "name": 111
+        }, {
+            "id": "5",
+            "name": 000
+        }, {
+            "id": "6",
+            "name": 666
+        }]
+
+        var concatArr = obj.concat(obj2);
+        console.log(concatArr);
+
+        var temp = {};
+        var result = [];
+
+        concatArr.map(function (item, index) {
+            console.log(item);
+            if (!temp[item.name]) {
+                result.push(item);
+                temp[item.name] = true;
+            }
+        });
+
+        var arr1 = result.sort((a, b) => {
+            if (a.name > b.name) {
+                return a.name - b.name;
+            }
+        });
+        console.log(temp);
+        console.log(arr1);
+    </script>
+</body>
+
+</html>

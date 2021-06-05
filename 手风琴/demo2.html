@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1800px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .box div {
+            float: left;
+            width: 80px;
+            height: 650px;
+            margin: 0 10px;
+            background: pink;
+            /* background: url(./images/1.jpg) no-repeat;
+            /* background-size: contain; */
+            /* background-position: center;  */
+            transition: all 1s;
+            cursor: pointer;
+        }
+
+        .box div img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* .box div:nth-child(2) {
+            background: url(./images/2.jpg) no-repeat;
+        }
+        .box div:nth-child(3) {
+            background: url(./images/3.jpg) no-repeat;
+        }
+        .box div:nth-child(4) {
+            background: url(./images/4.jpg) no-repeat;
+        }
+        .box div:nth-child(5) {
+            background: url(./images/5.jpg) no-repeat;
+        }
+        .box div:nth-child(6) {
+            background: url(./images/6.jpg) no-repeat;
+        } */
+
+        .box div.active {
+            width: 1200px;
+            /* background-size: 100% 100%; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item"><img src="./images/1.jpg" alt=""></div>
+        <div class="item"><img src="./images/2.jpg" alt=""></div>
+        <div class="item"><img src="./images/3.jpg" alt=""></div>
+        <div class="item"><img src="./images/4.jpg" alt=""></div>
+        <div class="item"><img src="./images/5.jpg" alt=""></div>
+        <div class="item"><img src="./images/6.jpg" alt=""></div>
+    </div>
+    <script>
+        var ele = document.querySelectorAll('.box div');
+        var Switch = true;d
+        ele.forEach((item, index) => {
+            item.onclick = function (e) {
+                if (Switch) {
+                    Switch = false;
+                    console.log(item);
+                    if (item.getAttribute('class').indexOf('active') > -1) {
+                        item.classList.remove('active');
+                    } else {
+                        ele.forEach(element => element.classList.remove('active'));
+                        item.classList.add('active');
+                    }
+                }
+            }
+        });
+
+        ele.forEach(item => {
+            item.addEventListener('transitionend', () => {
+                Switch = true;
+            });
+        });
+    </script>
+</body>
+
+</html>

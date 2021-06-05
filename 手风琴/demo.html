@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .box ul {
+            width: 100%;
+        }
+
+        .box li {
+            width: 100%;
+            /* height: 50px; */
+            margin: 5px 0;
+            /* background: pink; */
+            overflow: hidden;
+        }
+
+        .box ul li p {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: pink;
+            cursor: pointer;
+        }
+
+        .item {
+            width: 100%;
+            height: 0px;
+            text-align: center;
+            font-size: 100px;
+            line-height: 400px;
+            transition: all 0.8s;
+            /* background: blue; */
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .active {
+            height: 650px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="list">
+            <li>
+                <p>一</p>
+                <div class="item active"><img src="./images/1.jpg" alt=""></div>
+            </li>
+            <li>
+                <p>二</p>
+                <div class="item"><img src="./images/2.jpg" alt=""></div>
+            </li>
+            <li>
+                <p>三</p>
+                <div class="item"><img src="./images/3.jpg" alt=""></div>
+            </li>
+            <li>
+                <p>四</p>
+                <div class="item"><img src="./images/4.jpg" alt=""></div>
+            </li>
+            <li>
+                <p>五</p>
+                <div class="item"><img src="./images/5.jpg" alt=""></div>
+            </li>
+            <li>
+                <p>六</p>
+                <div class="item"><img src="./images/6.jpg" alt=""></div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var list = document.querySelector('.list');
+        var lis = list.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        var ps = document.querySelectorAll('.list p');
+        var Switch = true;
+
+        ps.forEach((item, index) => {
+            item.onclick = function (e) {
+                if (Switch) {
+                    Switch = false;
+                    if (items[index].getAttribute('class').indexOf('active') > -1) {
+                        items[index].classList.remove('active');
+                    } else {
+                        items.forEach(element => element.classList.remove('active'));
+                        items[index].classList.add('active');
+                    }
+                }
+            }
+        });
+
+        items.forEach(item => {
+            item.addEventListener('transitionend', () => {
+                Switch = true;
+            });
+        });
+
+        // for (var i = 0; i < ps.length; i++) {
+        //     ps[i].xb = i;
+        //     ps[i].onclick = function (e) {
+        //         console.log(this.xb);
+        //         console.log(items[this.xb].getAttribute('class'));
+        //         if (items[this.xb].getAttribute('class').indexOf('active') > -1) {
+        //             items[this.xb].classList.remove('active');
+        //         } else {
+        //             for(var j=0;j<items.length;j++){
+        //                 items[j].classList.remove('active');
+        //             }
+        //             items[this.xb].classList.add('active');
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

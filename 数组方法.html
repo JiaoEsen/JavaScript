@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [1, 2, 3, 4, 5, 6];
+        var arr2 = [7, 8, 9];
+        // 将数组转换成字符串并返回转化字符串数据，不会改变原来的数组
+        console.log(arr1.join('3'));
+        // 将一个数组和另一个数组拼接 不会改变原来的数组
+        console.log(arr1.concat(arr2));
+        // 删除数组最后一个元素，并返回删除数据，改变原来的数组
+        console.log(arr1.pop());
+        // 向数组头部添加一个元素 返回添加后的数组长度 改变原来的数组
+        console.log(arr1.push(1));
+        // 将数组进行反转 并返回反转后的新数组 改变原来的数组
+        console.log(arr1.reverse());
+
+        // 将数组排序 默认升序排列 返回排序之后的数组 不会改变原数组
+        console.log(arr1.sort());
+
+        //截取数组 从起始下标到结束下标不包括结束下标 返回截取的数组 不会改变原数组
+        console.log(arr1.slice(0, 3));
+
+        // 删除数组 从其实下标到结束下标 返回删除内容 改变原数组
+        console.log(arr1.splice(0, 2));
+        console.log(arr1.splice(1, 1, 22));
+        console.log(arr1.splice(1,0,111));
+        console.log(arr1);
+    </script>
+</body>
+
+</html>

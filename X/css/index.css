@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.box {
+    width: 1000px;
+}
+
+.box1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box1 div {
+    width: 30px;
+    height: 100px;
+    background: pink;
+}
+
+.box2 {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+}
+
+.box2 div {
+    width: 100px;
+    height: 100px;
+    background: pink;
+}
+
+.box3 {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+}
+
+.box3 div {
+    position: relative;
+    width: 30px;
+    height: 100px;
+    background: pink;
+}
+
+.box3 div div {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -35px;
+    background: pink;
+}
+
+.box4 {
+    width: 696px;
+    height: 30px;
+    margin: 0 auto;
+    background: pink;
+}
+
+.box5 {
+    width: 30px;
+    height: 40px;
+    margin: 0 auto;
+    background: pink;
+}
+
+.box6 {
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    background: pink;
+}
